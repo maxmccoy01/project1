@@ -4,9 +4,11 @@
 void RotEncrypt(char origtext[100], int key); //takes entered text and key value. 
 
 int main(){
-    int key = 1;
+    int key;
+    printf("please enter a key:");
+    scanf("%d", &key);
     char origtext[100];//string capable of storing 99 letter words
-    printf("please enter the text you want to encrypt in CAPITALS: ");
+    printf("please enter the text you want to encrypt in CAPITALS: \n");
     scanf("%s", origtext); //stores the entered value in origtext
     RotEncrypt(origtext,key);
 }
