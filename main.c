@@ -2,7 +2,8 @@
 //the value of A in ASCII is 65, B = 66, C = 67,...., Z = 90
 //The values of the letters change with upper and lower case 
 void RotEncrypt(char origtext[100], int key1); //takes entered text and key value. 
-void RotDecrypt (char encryptext[100], int key2); //takes an encrypted text and the key that was used to encrypt it
+void RotDecrypt(char encryptext[100], int key2); //takes an encrypted text and the key that was used to encrypt it
+void SubEncrypt(char initialtext[100], char key3[26]);
 
 int main(){
     char x;
@@ -14,9 +15,10 @@ int main(){
               scanf("%d", &key1); //user enters a value and it is stored in key1
               char origtext[100];//string capable of storing 99 letter words
               printf("please enter the text you want to encrypt in CAPITALS: \n");
-              scanf("%s", origtext); //stores the entered value in origtext
+              scanf("%s", origtext); //stores the entered text in origtext
               RotEncrypt(origtext, key1); //calling the function to encrypt the text
               break;
+              
     case 'B': ; int key2;
               printf("please enter the key used to encrypt the message\n");
               scanf("%d", &key2); //user gives the key they used to encrypt the message
@@ -25,7 +27,14 @@ int main(){
               scanf("%s", encryptext); //stores the ecncrypted text in the string encryptext
               RotDecrypt(encryptext, key2); //calling the function to decrypt the text
               break;
-    case 'C': ; 
+              
+    case 'C': ; char key3[26];
+              printf("please enter key\n");
+              scanf("%s", key3);
+              printf("please enter the message you want to encrypt in CAPITALS\n");
+              scanf("%s\n", initialtext); //stores the entered text in initialtext
+              SubEncrypt(initialtext, key3); //calling the function to encrypt the text
+                
     }
 }
 void RotEncrypt(char origtext[100], int key1){
@@ -46,7 +55,7 @@ void RotEncrypt(char origtext[100], int key1){
 
 void RotDecrypt(char encryptext[100], int key2){
     int i = 0; //counts
-    int temp; //temporary valuable
+    int temp; //temporary variable
     int lettervalue; //the numeriacl value of each letter
     char decrypted[100];
     
@@ -60,6 +69,20 @@ void RotDecrypt(char encryptext[100], int key2){
     printf("\n");
 }
 
+void SubEncrypt(char initialtext[100], char key3[26]) {
+    int i = 0;
+    int lettervalue;
+    
+    
+    
+    //for each character c in initialtext
+        //find the substituion for c in key3
+        //replace c in initialtext with that character
+      
+    
+    
+    
+}
 
 
 
