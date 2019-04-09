@@ -3,7 +3,7 @@
 //The values of the letters change with upper and lower case 
 void RotEncrypt(char origtext[100], int key1); //takes entered text and key value. 
 void RotDecrypt(char encryptext[100], int key2); //takes an encrypted text and the key that was used to encrypt it
-void SubEncrypt(char initialtext[100], char key3[26]);
+void SubEncrypt(char initialtext[100]);
 
 int main(){
     char x;
@@ -28,12 +28,9 @@ int main(){
               RotDecrypt(encryptext, key2); //calling the function to decrypt the text
               break;
               
-    case 'C': ; char key3[26];
-              printf("please enter key\n");
-              scanf("%s", key3);
-              printf("please enter the message you want to encrypt in CAPITALS\n");
+    case 'C': ; printf("please enter the message you want to encrypt in CAPITALS\n"
               scanf("%s\n", initialtext); //stores the entered text in initialtext
-              SubEncrypt(initialtext, key3); //calling the function to encrypt the text
+              SubEncrypt(initialtext); //calling the function to encrypt the text
                 
     }
 }
@@ -69,17 +66,24 @@ void RotDecrypt(char encryptext[100], int key2){
     printf("\n");
 }
 
-void SubEncrypt(char initialtext[100], char key3[26]) {
-    int i = 0;
-    int lettervalue;
+void SubEncrypt(char initialtext[100]) {
+    char initialtext[100];
+                   // {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'};
+    char dictionary[] {'QWERTYUIOPASDFGHJKLZXCVBNM'};
+    
+    for(int i=0, encrypted[i]!= '\0', i++) {
+      int j = 0;
+      while(initialtext[i] != dictionary[j]){
+          j++;
+          initialtext[i] = dictionary[j];
+      }
+    }
     
     
     
-    //for each character c in initialtext
-        //find the substituion for c in key3
-        //replace c in initialtext with that character
-      
     
+    
+
     
     
 }
