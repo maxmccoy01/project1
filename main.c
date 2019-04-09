@@ -71,12 +71,12 @@ void SubEncrypt(char initialtext[100]) {
                    // {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'};
     char dictionary[] {'QWERTYUIOPASDFGHJKLZXCVBNM'};
     
-    for(int i=0, encrypted[i]!= '\0', i++) {
+    for(int i=0, initialtext[i]!= '\0', i++) {
       int j = 0;
       while(initialtext[i] != dictionary[j]){
           j++;
-          initialtext[i] = dictionary[j];
       }
+    initialtext[i] = dictionary[j];
     }
     
     
