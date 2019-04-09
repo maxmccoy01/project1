@@ -25,7 +25,8 @@ int main(){
               scanf("%s", encryptext); //stores the ecncrypted text in the string encryptext
               RotDecrypt(encryptext, key2); //calling the function to decrypt the text
               break;
-}
+    case 'C': ; 
+    }
 }
 void RotEncrypt(char origtext[100], int key1){
     int i = 0; //counts
