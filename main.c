@@ -112,14 +112,16 @@ void SubEncrypt(char initialtext[100], char key3[27]) {
 
 void SubDecrypt(char subencryptext[100], char key4[27]){
     char decryptedtext[100];
+    int length = strlen(subencryptext);
     
-    
-    
-    
-    
-    
-    
-    
-    
+    for(int i=0; i < length; i++){
+       int j = 0;
+       while(subencryptext[i] != key4[j]){
+          j++;
+       }
+         decryptedtext[i] = 65 + j;
+         printf("%c", decryptedtext[i]);
+    }
+   printf("\n");
 }
 
