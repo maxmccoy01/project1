@@ -28,9 +28,10 @@ int main(){
               RotDecrypt(encryptext, key2); //calling the function to decrypt the text
               break;
               
-    case 'C': ; printf("please enter the message you want to encrypt in CAPITALS\n"
+    case 'C': ; printf("please enter the message you want to encrypt in CAPITALS\n");
               scanf("%s\n", initialtext); //stores the entered text in initialtext
               SubEncrypt(initialtext); //calling the function to encrypt the text
+              break;
                 
     }
 }
@@ -67,25 +68,21 @@ void RotDecrypt(char encryptext[100], int key2){
 }
 
 void SubEncrypt(char initialtext[100]) {
+    char subencrypted[100];
     char initialtext[100];
-                   // {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'};
-    char dictionary[] {'QWERTYUIOPASDFGHJKLZXCVBNM'};
+                    // {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'};
+    char dictionary[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
     
-    for(int i=0, initialtext[i]!= '\0', i++) {
+    for(int i=0; initialtext[i] != '\0'; i++) {
       int j = 0;
       while(initialtext[i] != dictionary[j]){
           j++;
       }
-    initialtext[i] = dictionary[j];
+    subencrypted[i] = dictionary[j];
+    printf("%c", subencrypted[i]);
+    j = 0;
     }
-    
-    
-    
-    
-    
-
-    
-    
+    printf("\n");
 }
 
 
