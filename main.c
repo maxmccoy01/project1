@@ -4,7 +4,7 @@
 //The values of the letters change with upper and lower case 
 void RotEncrypt(char origtext[100], int key1); //takes entered text and key value. 
 void RotDecrypt(char encryptext[100], int key2); //takes an encrypted text and the key that was used to encrypt it
-void SubEncrypt(char initialtext[100]);
+void SubEncrypt(char initialtext[100], char key3[27]);
 
 int main(){
     char x;
@@ -32,7 +32,10 @@ int main(){
     case 'C': ; printf("please enter the message you want to encrypt in CAPITALS\n");
               char initialtext[100];
               scanf("%s\n", initialtext); //stores the entered text in initialtext
-              SubEncrypt(initialtext); //calling the function to encrypt the text
+              printf("please enter the key in CAPITALS (the 1st letter will substitute A, etc.)\n");
+              char key3[27];
+              scanf("%s\n", key3); //stores the key in key3
+              SubEncrypt(initialtext, key3); //calling the function to encrypt the text
               break;
                 
     }
@@ -69,20 +72,18 @@ void RotDecrypt(char encryptext[100], int key2){
     printf("\n");
 }
 
-void SubEncrypt(char initialtext[100]) {
-   char key[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
-   char initialtext[100];
-   char subencrypted[];
-   int length = strlen(initialtext);
+void SubEncrypt(char initialtext[100], char key3[27]) {
+   char subencrypted[100]; // the text after it has been encrypted
+   int length = strlen(initialtext); //uses a function from string.h to find the lenth of initialtext
    
-   for(i=0; i < length; i++){
-     int j = initialtext[i] - 65;
+   for(int i=0; i < length; i++){
+     int j = initialtext[i] - 65; //turns the letter at i in initialtext into a number between 0 and 25
      if(j >= 0 && j < 26){
-         subencrypted[i] = key[j];
+         subencrypted[i] = key3[j]; //the value at i in subencrypted becomes the value that is at j in key3
      } else {
-         subencrypted[i] = message[i];
+         subencrypted[i] = initialtext[i]; //this also spaces to exist in the encrypted text
      }
-     return subencrypted;
+    printf("%c", subencrypted);
    }
    printf("\n");
 }
