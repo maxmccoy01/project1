@@ -111,21 +111,22 @@ void SubEncrypt(char initialtext[100], char key3[27]) {
 }
 
 void SubDecrypt(char subencryptext[100], char key4[27]){
-    char decryptedtext[100];
-    int length = strlen(subencryptext);
+    char decryptedtext[100]; //string the decrypted text will be stored in
+    int length = strlen(subencryptext); //stores the length of the string in the variable length
     
     for(int i=0; i < length; i++){
        int j = 0;
-       int temp = subencryptext[i] - 65;
+       int temp; //a temporary variable
+       temp = subencryptext[i] - 65; //gets a number between 0 and 25 if it was a capital letter and stores in temp
        if(temp >= 0 && temp < 26){
-         while(subencryptext[i] != key4[j]){
-            j++;
+         while(subencryptext[i] != key4[j]){ //finds when a value in the key matches a value in the encrypted text then stops
+            j++; //increments
          } 
-          decryptedtext[i] = 65 + j;
-          printf("%c", decryptedtext[i]);
+          decryptedtext[i] = 65 + j; //finds the decrypted letter
+          printf("%c", decryptedtext[i]); //prints the decrypted letter
          } else {
-          decryptedtext[i] = subencryptext[i];
-          printf("%c", decryptedtext[i]);
+          decryptedtext[i] = subencryptext[i]; //any value thatv isn't a capital letter gets passed un-altered to the decrypted text
+          printf("%c", decryptedtext[i]); //prints the un-altered value
          }
        }
    printf("\n");
