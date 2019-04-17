@@ -83,7 +83,7 @@ void SubEncrypt(char initialtext[100], char key3[27]) {
      } else {
          subencrypted[i] = initialtext[i]; //this also spaces to exist in the encrypted text
      }
-    printf("%c", subencrypted);
+   printf("%c", subencrypted[i]);
    }
    printf("\n");
 }
