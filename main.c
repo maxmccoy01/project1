@@ -44,12 +44,18 @@ void RotEncrypt(char origtext[100], int key1){
     int i = 0; //counts
     int lettervalue; //variable that represents the number value of each ASCII charcter after the key has been applied
     int temp; // declared a temporary variable
+    int temp2; //another temporary variable
     char encrypted[100];
     
     while(origtext[i]!= '\0'){
         temp  = origtext[i]; //takes the numerical value of the letter at i and stores it into temp
-        lettervalue = (temp + key1 - 65)%26 + 65; //conversion equation
-        encrypted[i] = lettervalue; //takes the numerical value of the letter after the equation and stores it at point i in this string
+        temp2 = origtext[i] - 65; //generates a number between 0 and 25 for capital letters
+        if(temp2 >= 0 && temp2 < 26 ){
+         lettervalue = (temp + key1 - 65)%26 + 65; //conversion equation
+         encrypted[i] = lettervalue; //takes the numerical value of the letter after the equation and stores it at point i in this string
+         } else {
+            encrypted[i] = origtext[i]; //for things that aren't capital letters in origtext
+        }
         printf("%c", encrypted[i]); 
         i++;
     }
@@ -59,13 +65,19 @@ void RotEncrypt(char origtext[100], int key1){
 void RotDecrypt(char encryptext[100], int key2){
     int i = 0; //counts
     int temp; //temporary variable
+    int temp2; //another temporary variable
     int lettervalue; //the numeriacl value of each letter
     char decrypted[100];
     
     while(encryptext[i]!= '\0'){
         temp = encryptext[i]; //takes the numerical value of the letter at i and stores it in temp
-        lettervalue = (temp - key2 - 65)%26 + 65; //conversion equation
+        temp2 = encryptext[i] - 65; //generates a number between 0 and 25 for capital letters
+        if(temp2 >= 0 && temp2 < 26){
+        lettervalue = (temp - key2 + 65)%26 + 65; //conversion equation
         decrypted[i] = lettervalue; //takes the numerical value of the letter after the equation and stores it at point i in this string
+        } else {
+          decrypted[i] = encryptext[i];
+        }
         printf("%c", decrypted[i]); //prints the letter at i in the string
         i++;
     }
@@ -77,11 +89,11 @@ void SubEncrypt(char initialtext[100], char key3[27]) {
    int length = strlen(initialtext); //uses a function from string.h to find the lenth of initialtext
    
    for(int i=0; i < length; i++){
-     int j = initialtext[i] - 65; //turns the letter at i in initialtext into a number between 0 and 25
+     int j = initialtext[i] - 65; //turns the value at i in initialtext into a number between 0 and 25 if it is a capital letter
      if(j >= 0 && j < 26){
          subencrypted[i] = key3[j]; //the value at i in subencrypted becomes the value that is at j in key3
      } else {
-         subencrypted[i] = initialtext[i]; //this also spaces to exist in the encrypted text
+         subencrypted[i] = initialtext[i]; //for things that aren't capital letters in initialtext
      }
    printf("%c", subencrypted[i]);
    }
