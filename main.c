@@ -9,7 +9,7 @@ void SubDecrypt(char subencryptext[100], char key4[27]); //takes an encrypted te
 
 int main(){
     char x;
-    printf("Press A for rotation cipher encryption\n B for rotation cipher decryption\n C for substitution cipher encryption\n D for substitution cipher decryption\n");
+    printf("Press:\n A for rotation cipher encryption\n B for rotation cipher decryption\n C for substitution cipher encryption\n D for substitution cipher decryption\n");
     scanf("%c", &x);
     switch(x) {
     case 'A': ; int key1;
@@ -116,12 +116,18 @@ void SubDecrypt(char subencryptext[100], char key4[27]){
     
     for(int i=0; i < length; i++){
        int j = 0;
-       while(subencryptext[i] != key4[j]){
-          j++;
+       int temp = subencryptext[i] - 65;
+       if(temp >= 0 && temp < 26){
+         while(subencryptext[i] != key4[j]){
+            j++;
+         } 
+          decryptedtext[i] = 65 + j;
+          printf("%c", decryptedtext[i]);
+         } else {
+          decryptedtext[i] = subencryptext[i];
+          printf("%c", decryptedtext[i]);
+         }
        }
-         decryptedtext[i] = 65 + j;
-         printf("%c", decryptedtext[i]);
-    }
    printf("\n");
 }
 
