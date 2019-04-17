@@ -4,7 +4,8 @@
 //The values of the letters change with upper and lower case 
 void RotEncrypt(char origtext[100], int key1); //takes entered text and key value. 
 void RotDecrypt(char encryptext[100], int key2); //takes an encrypted text and the key that was used to encrypt it
-void SubEncrypt(char initialtext[100], char key3[27]);
+void SubEncrypt(char initialtext[100], char key3[27]); //takes entered text and key
+void SubDecrypt(char subencryptext[100], char key4[27]); //takes an encrypted text and the key that was used to encrypt it
 
 int main(){
     char x;
@@ -15,27 +16,36 @@ int main(){
               printf("please enter a key:");
               scanf("%d", &key1); //user enters a value and it is stored in key1
               char origtext[100];//string capable of storing 99 letter words
-              printf("please enter the text you want to encrypt in CAPITALS: \n");
+              printf("please enter the text you want to encrypt in CAPITALS:\n");
               scanf("%s", origtext); //stores the entered text in origtext
               RotEncrypt(origtext, key1); //calling the function to encrypt the text
               break;
               
     case 'B': ; int key2;
-              printf("please enter the key used to encrypt the message\n");
+              printf("please enter the key used to encrypt the message:\n");
               scanf("%d", &key2); //user gives the key they used to encrypt the message
               char encryptext[100]; //the string that the encrypted text will be stored in
-              printf("please enter the encrypted text in CAPITALS\n");
+              printf("please enter the encrypted text in CAPITALS:\n");
               scanf("%s", encryptext); //stores the ecncrypted text in the string encryptext
               RotDecrypt(encryptext, key2); //calling the function to decrypt the text
               break;
               
-    case 'C': ; printf("please enter the message you want to encrypt in CAPITALS\n");
+    case 'C': ; printf("please enter the message you want to encrypt in CAPITALS:\n");
               char initialtext[100];
               scanf("%s", initialtext); //stores the entered text in initialtext
-              printf("please enter the key in CAPITALS (the 1st letter will substitute A, etc.)\n");
+              printf("please enter the key in CAPITALS (the 1st letter will substitute A, etc.):\n");
               char key3[27];
               scanf("%s", key3); //stores the key in key3
               SubEncrypt(initialtext, key3); //calling the function to encrypt the text
+              break;
+              
+    case 'D': ; printf("please enter the key used to encrypt the message in CAPITALS\n");
+              char key4[27];
+              scanf("%s", key4); //stores the key in key4
+              printf("please enter the encrypted message in CAPITALS:\n");
+              char subencryptext[100];
+              scanf("%s", subencryptext); //stores the encrypted message in subencryptext
+              SubDecrypt(subencryptext, key4); //calling the function to decrypt the text
               break;
                 
     }
@@ -100,5 +110,16 @@ void SubEncrypt(char initialtext[100], char key3[27]) {
    printf("\n");
 }
 
-
+void SubDecrypt(char subencryptext[100], char key4[27]){
+    char decryptedtext[100];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
 
