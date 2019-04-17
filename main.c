@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h> //lets us use a function which finds the lenth of a string
 //the value of A in ASCII is 65, B = 66, C = 67,...., Z = 90
 //The values of the letters change with upper and lower case 
 void RotEncrypt(char origtext[100], int key1); //takes entered text and key value. 
@@ -69,20 +70,21 @@ void RotDecrypt(char encryptext[100], int key2){
 }
 
 void SubEncrypt(char initialtext[100]) {
-    char subencrypted[100];
-                    // {'ABCDEFGHIJKLMNOPQRSTUVWXYZ'};
-    char dictionary[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
-    
-    for(int i=0; initialtext[i] != '\0'; i++) {
-      int j = 0;
-      while(initialtext[i] != dictionary[j]){
-          j++;
-      }
-    subencrypted[i] = dictionary[j];
-    printf("%c", subencrypted[i]);
-    j = 0;
-    }
-    printf("\n");
+   char key[] = "QWERTYUIOPASDFGHJKLZXCVBNM";
+   char initialtext[100];
+   char subencrypted[];
+   int length = strlen(initialtext);
+   
+   for(i=0; i < length; i++){
+     int j = initialtext[i] - 65;
+     if(j >= 0 && j < 26){
+         subencrypted[i] = key[j];
+     } else {
+         subencrypted[i] = message[i];
+     }
+     return subencrypted;
+   }
+   printf("\n");
 }
 
 
