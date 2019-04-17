@@ -31,10 +31,10 @@ int main(){
               
     case 'C': ; printf("please enter the message you want to encrypt in CAPITALS\n");
               char initialtext[100];
-              scanf("%s\n", initialtext); //stores the entered text in initialtext
+              scanf("%s", initialtext); //stores the entered text in initialtext
               printf("please enter the key in CAPITALS (the 1st letter will substitute A, etc.)\n");
               char key3[27];
-              scanf("%s\n", key3); //stores the key in key3
+              scanf("%s", key3); //stores the key in key3
               SubEncrypt(initialtext, key3); //calling the function to encrypt the text
               break;
                 
