@@ -21,16 +21,17 @@ int main(){
     case 'A': ; int w = 0; //counts
               char c;
               char origtext[100];//string capable of storing 99 letter words
+              scanf("%c", &i); //reads the \n from the above scanf so it doesn't interfer
               printf("please enter the text you want to encrypt in CAPITALS:\n");
               while(1){ //a lopp that will allow whitespace to be used as well as characters
-              scanf("%c", &c);
-                if(c == '\n'){
-                   origtext[w] = '\0'; //when a new line the string ends
-                   break;
-                }
+                  scanf("%c", &c);
+                    if(c == '\n'){
+                       origtext[w] = '\0'; //when a new line the string ends
+                       break;
+                    }
               origtext[w] = c; //that point in the string becomes that character
               w++;
-         }    
+              }    
               int key1;
               printf("please enter a key:");
               scanf("%d", &key1); //user enters a value and it is stored in key1
@@ -40,16 +41,17 @@ int main(){
     case 'B': ; char encryptext[100]; //the string that the encrypted text will be stored in
               int x = 0; //counts
               char a;
+              scanf("%c", &i); //reads the \n from the above scanf so it doesn't interfe
               printf("please enter the encrypted text in CAPITALS:\n");
               while(1){
-              scanf("%c", &a);
-                if(a == '\n'){
-                   encryptext[x] = '\0';
-                   break;
-                }
-              encryptext[x] = a;
-              x++;
-          }
+                  scanf("%c", &a);
+                    if(a == '\n'){
+                       encryptext[x] = '\0';
+                       break;
+                    }
+                  encryptext[x] = a;
+                  x++;
+              }
               int key2;
               printf("please enter the key used to encrypt the message:\n");
               scanf("%d", &key2); //user gives the key they used to encrypt the message
@@ -60,15 +62,16 @@ int main(){
               char initialtext[100];
               int y = 0; //counts
               char e;
+              scanf("%c", &i); //reads the \n from the above scanf so it doesn't interfer
               while(1){
-              scanf("%c", &e);
-                if(e == '\n'){
-                   initialtext[y] = '\0';
-                   break;
-                }
+                  scanf("%c", &e);
+                    if(e == '\n'){
+                       initialtext[y] = '\0';
+                       break;
+                    }
               initialtext[y] = e;
               y++;
-          }
+              }
               printf("please enter the key in CAPITALS (the 1st letter will substitute A, etc.):\n");
               char key3[27];
               scanf("%s", key3); //stores the key in key3
@@ -79,15 +82,16 @@ int main(){
               char subencryptext[100];
               int z = 0; // counts
               char u;
+              scanf("%c", &i); //reads the \n from the above scanf so it doesn't interfer
               while(1){
-              scanf("%c", &u);
-                if(u == '\n'){
-                   subencryptext[z] = '\0';
-                   break;
-                }
+                  scanf("%c", &u);
+                    if(u == '\n'){
+                       subencryptext[z] = '\0';
+                       break;
+                    }
               subencryptext[z] = u;
               z++;
-          }    
+              }    
               printf("please enter the key used to encrypt the message in CAPITALS\n");
               char key4[27];
               scanf("%s", key4); //stores the key in key4
